@@ -3,11 +3,14 @@ POST http://localhost:8080/api/user/register
 Content-Type: application/json
 
 {
-  "name": "",
-  "username": "",
-  "email": "",
-  "password": ""
+  "name": "Dana",
+  "username": "Dana60",
+  "email": "dana@example.ro",
+  "password": "password98765"
 }
 
 ###
 GET http://localhost:8080/api/user/users
+
+###
+GET http://localhost:8080/api/user/users/1
