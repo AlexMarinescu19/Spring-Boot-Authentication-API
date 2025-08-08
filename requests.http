@@ -3,10 +3,10 @@ POST http://localhost:8080/api/user/register
 Content-Type: application/json
 
 {
-  "name": "Dana",
-  "username": "Dana60",
-  "email": "dana@example.ro",
-  "password": "password98765"
+  "name": "Alex",
+  "username": "Alex19",
+  "email": "alex@example.ro",
+  "password": "password1234"
 }
 
 ###
@@ -14,3 +14,17 @@ GET http://localhost:8080/api/user/users
 
 ###
 GET http://localhost:8080/api/user/users/1
+
+###
+PATCH http://localhost:8080/api/user/users/1
+Content-Type: application/json
+
+{
+  "name": "Dana",
+  "username": "Dana1960",
+  "email": "dana@example.ro",
+  "password": "password98765"
+}
+
+###
+DELETE http://localhost:8080/api/user/users/1

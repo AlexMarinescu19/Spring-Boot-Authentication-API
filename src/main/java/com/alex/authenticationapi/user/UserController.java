@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("api/user")
@@ -22,7 +21,7 @@ public class UserController
     @PostMapping("/register")
     public ResponseEntity<UserResponse> register(@Valid @RequestBody UserRegister userRegister)
     {
-        UserResponse response = userService.register(userRegister);
+        UserResponse response = userService.registerUser(userRegister);
         URI location = URI.create("/api/user/" + response.getUsername());
         return ResponseEntity.created(location).body(response);
     }
@@ -43,5 +42,21 @@ public class UserController
         UserResponse foundUser = userService.getUserById(id);
 
         return ResponseEntity.ok(foundUser);
+    }
+
+    @PatchMapping("/users/{id}")
+    public ResponseEntity<UserResponse> updateUser(
+            @PathVariable Integer id,
+            @RequestBody UserPartialUpdate userPartialUpdate)
+    {
+        UserResponse updatedUser = userService.updateUser(id, userPartialUpdate);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<Void> deleteUserById(@PathVariable Integer id)
+    {
+        userService.deleteUserById(id);
+        return ResponseEntity.noContent().build();
     }
 }

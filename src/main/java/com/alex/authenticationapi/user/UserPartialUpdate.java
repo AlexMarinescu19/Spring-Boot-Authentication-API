@@ -1,22 +1,20 @@
 package com.alex.authenticationapi.user;
 
-public class UserUpdate
+public class UserPartialUpdate
 {
     private String name;
     private String username;
     private String email;
     private String password;
-    private Role role;
 
-    public UserUpdate() {}
+    public UserPartialUpdate() {}
 
-    public UserUpdate(String name, String username, String email, String password, Role role)
+    public UserPartialUpdate(String name, String username, String email, String password)
     {
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.role = role;
     }
 
     public String getName()
@@ -57,15 +55,5 @@ public class UserUpdate
     public void setPassword(String password)
     {
         this.password = password;
-    }
-
-    public Role getRole()
-    {
-        return role;
-    }
-
-    public void setRole(Role role)
-    {
-        this.role = role;
     }
 }
